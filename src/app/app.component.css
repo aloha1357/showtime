@@ -1,6 +1,8 @@
 .navbar-brand,
 .nav-link.active[aria-current="page"] {
     color: red !important;
+    font: bold;
+    font-weight: 700;
 }
 
 
@@ -14,14 +16,15 @@
 /* 將"Search"按鈕設為紅色 */
 
 .btn-outline-success {
-    color: red !important;
-    border-color: red !important;
+    color: #ff0000 !important;
+    background-color: rgb(0, 0, 0) !important;
+    border-color: rgb(0, 0, 0) !important;
 }
 
 .btn-outline-success:hover {
-    color: #fff !important;
-    background-color: red !important;
-    border-color: red !important;
+    color: #ff0000 !important;
+    background-color: rgb(0, 0, 0) !important;
+    border-color: rgb(0, 0, 0) !important;
 }
 
 
