@@ -1,0 +1,47 @@
+.navbar-brand,
+.nav-link.active[aria-current="page"] {
+    color: red !important;
+}
+
+
+/* 當導航欄被折叠時，仍然將"Home"文本設為紅色 */
+
+.navbar-collapse .nav-link.active[aria-current="page"] {
+    color: red !important;
+}
+
+
+/* 將"Search"按鈕設為紅色 */
+
+.btn-outline-success {
+    color: red !important;
+    border-color: red !important;
+}
+
+.btn-outline-success:hover {
+    color: #fff !important;
+    background-color: red !important;
+    border-color: red !important;
+}
+
+
+/* 针对输入框右边的"Search"按钮文本 */
+
+.form-control:focus+.btn-outline-success {
+    color: red !important;
+    border-color: red !important;
+}
+
+
+/* 针对折叠时的"Search"按钮文本样式 */
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='red' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+}
+
+
+/* 如果你还需要改变折叠后的导航项的颜色，可以添加这个规则 */
+
+.navbar-collapse .nav-link {
+    color: red !important;
+}
