@@ -16,7 +16,7 @@ export class MovieApiServiceService {
     return this.http.get(`${this.baseUrl}movie/popular?api_key=${this.api_key}`);
   }
   getNowPlaying(){
-    return this.http.get(`${this.baseUrl}movie/now_playing?api_key=${this.api_key}`);
+    return this.http.get(`${this.baseUrl}movie/now_playing?language=zh&api_key=${this.api_key}`);
   }
   // getMovieDetails
   // getMovieDetails(id){
@@ -25,5 +25,8 @@ export class MovieApiServiceService {
   bannerApiData():Observable<any> {
   
     return this.http.get(`${this.baseUrl}movie/popular?api_key=${this.api_key}`);
+  }
+  trendingMovies():Observable<any> {
+    return this.http.get(`${this.baseUrl}trending/movie/day?api_key=${this.api_key}`);
   }
 }

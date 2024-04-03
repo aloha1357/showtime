@@ -5,16 +5,18 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
 
+import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule,
+     CommonModule,
      RouterOutlet,
      FormsModule,
      RouterLink,
      RouterLinkActive,
-     HttpClientModule
+     HttpClientModule,
+     ReactiveFormsModule
     ],
   providers: [MovieApiServiceService],
   templateUrl: './app.component.html',

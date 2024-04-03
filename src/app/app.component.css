@@ -12,9 +12,11 @@
 /* 导航链接的基本样式 */
 
 .navbar-nav .nav-link {
+    font-weight: 700;
     color: #ff0000;
     /* 默认文字颜色 */
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    padding-left: 3px;
 }
 
 .navbar-nav .nav-link:hover,
