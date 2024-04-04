@@ -16,11 +16,18 @@ export class HomeComponent {
   constructor(private movieApiService: MovieApiServiceService) { }
   bannerData: any=[];
   popularMovies: any=[];
-  nowPlaying: any=[];
+  actionMovieResult: any = [];
+  adventureMovieResult: any = [];
+  animationMovieResult: any = [];
+  comedyMovieResult: any = [];
+  documentaryMovieResult: any = [];
+  sciencefictionMovieResult: any = [];
+  thrillerMovieResult: any = [];
+
   ngOnInit(): void {
     this.bannerApiData();
     this.getPopularMovies();
-    this.getNowPlaying();
+    this.getMovies();
   }
 
   bannerApiData(){
@@ -36,12 +43,36 @@ export class HomeComponent {
       this.popularMovies = data.results;
     });
   }
-  getNowPlaying(){
-    this.movieApiService.getNowPlaying().subscribe((data: any) => { // Specify the type of 'data' as 'any'
-      console.log(data, 'now playing');
-      this.nowPlaying = data.results;
+
+  getMovies(){  
+    this.movieApiService.getMovies('action').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+      console.log(data, 'action movies');
+      this.actionMovieResult = data.results;
+    });
+    this.movieApiService.getMovies('adventure').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+      console.log(data, 'adventure movies');
+      this.adventureMovieResult = data.results;
+    });
+    this.movieApiService.getMovies('animation').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+      console.log(data, 'animation movies');
+      this.animationMovieResult = data.results;
+    });
+    this.movieApiService.getMovies('comedy').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+      console.log(data, 'comedy movies');
+      this.comedyMovieResult = data.results;
+    });
+    this.movieApiService.getMovies('documentary').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+      console.log(data, 'documentary movies');
+      this.documentaryMovieResult = data.results;
+    });
+    this.movieApiService.getMovies('sciencefiction').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+      console.log(data, 'science fiction movies');
+      this.sciencefictionMovieResult = data.results;
+    });
+    this.movieApiService.getMovies('thriller').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+      console.log(data, 'thriller movies');
+      this.thrillerMovieResult = data.results;
     });
   }
-
 
 }
