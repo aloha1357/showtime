@@ -1,5 +1,10 @@
 /* 轮播项的基本样式保持不变 */
 
+.carousel {
+    margin-top: 0px;
+    /* 调整轮播的位置 */
+}
+
 .carousel-item {
     position: relative;
 }

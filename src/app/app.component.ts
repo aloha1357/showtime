@@ -25,4 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 export class AppComponent {
   title = 'showtime';
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 }

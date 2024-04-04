@@ -2,11 +2,24 @@
     <form [formGroup]="searchform" (ngSubmit)="submitForm()">
         <div class="row">
             <div class="mb-3 col-lg-10">
-                <input type="text" class="form-control" placeholder="Search Movie here...">
+                <input type="text" class="form-control" formControlName="movieName" placeholder="Search Movie here...">
+
             </div>
             <div class="col-lg-2">
                 <button class="btn btn-md">Search</button>
             </div>
         </div>
     </form>
-</div>
+    <div class="row mt-5">
+        <div class="col-lg-4" *ngFor="let movie of searchResult;
+">
+            <div class="row">
+                <div class="col-lg-3 mt-3 mb-3">
+                    <img src="http://image.tmdb.org/t/p/w1280/{{movie.poster_path}}" class="card-img-top" alt="...">
+                </div>
+
+                <div class="col-lg-9">
+                    <h5> {{movie.title}}</h5>
+                </div>
+            </div>
+        </div>

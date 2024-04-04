@@ -20,24 +20,21 @@
 </div>
 
 <!-- banner end -->
-
-<div class="full-width-container">
+<div class="full-width-container py-3">
     <div class="row">
-        <!-- Popular Movies  -->
         <h5 class="text-white">Popular Movies</h5>
     </div>
-    <div class="rowposter mp-4 p-2">
+    <div class="rowposter p-2">
         <ng-container *ngFor="let m of popularMovies">
             <img src="http://image.tmdb.org/t/p/w500/{{m.poster_path}}" class="rowimg largeposter" alt="...">
         </ng-container>
     </div>
 </div>
-<div class="full-width-container">
+<div class="full-width-container ">
     <div class="row">
-        <!-- Popular Movies  -->
         <h5 class="text-white">Now Playing</h5>
     </div>
-    <div class="rowposter mp-4 p-2">
+    <div class="rowposter ">
         <ng-container *ngFor="let m of nowPlaying">
             <img src="http://image.tmdb.org/t/p/w500/{{m.poster_path}}" class="rowimg largeposter" alt="...">
         </ng-container>

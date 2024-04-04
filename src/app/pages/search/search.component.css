@@ -7,3 +7,11 @@ button:hover {
     background-color: #ffffff;
     color: #ff0000;
 }
+
+img {
+    width: 100%;
+}
+
+h5 {
+    color: #ffffff;
+}
