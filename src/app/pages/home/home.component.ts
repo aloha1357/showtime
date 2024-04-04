@@ -1,12 +1,13 @@
 import { Component,HostListener } from '@angular/core';
+import { RouterOutlet,RouterLink,RouterLinkActive } from '@angular/router';
+
 import { MovieApiServiceService } from '../../service/movie-api-service.service'; // Update the import path
 import { CommonModule } from '@angular/common';
-import { get } from 'http';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -41,10 +42,6 @@ export class HomeComponent {
       this.nowPlaying = data.results;
     });
   }
-  // getMovieDetails(id){  
-  //   this.movieApiService.getMovieDetails(id).subscribe((data: any) => { // Specify the type of 'data' as 'any'
-  //     console.log(data, 'movie details');
-  //   });
-  // }
+
 
 }
