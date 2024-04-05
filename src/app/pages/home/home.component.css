@@ -94,7 +94,7 @@
 .rowposter,
 .scrollbar {
     &::-webkit-scrollbar {
-        height: 4px;
+        height: 16px;
     }
     &::-webkit-scrollbar-track {
         background-color: rgb(0, 0, 0);
@@ -110,7 +110,7 @@
 .rowposter:hover,
 .scrollbar:hover {
     &::-webkit-scrollbar {
-        height: 4px;
+        height: 16px;
     }
     &::-webkit-scrollbar-track {
         background-color: #313131;
@@ -120,5 +120,18 @@
     &::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: rgb(186, 186, 186);
+    }
+}
+
+.bposter {
+    max-height: 0px;
+}
+
+@media (max-width: 768px) {
+    .aposter {
+        max-height: 0px;
+    }
+    .bposter {
+        max-height: 100%;
     }
 }

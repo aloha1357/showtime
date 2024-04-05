@@ -65,7 +65,7 @@ export class HomeComponent {
       console.log(data, 'documentary movies');
       this.documentaryMovieResult = data.results;
     });
-    this.movieApiService.getMovies('sciencefiction').subscribe((data: any) => { // Specify the type of 'data' as 'any'
+    this.movieApiService.getMovies('science fiction').subscribe((data: any) => { // Specify the type of 'data' as 'any'
       console.log(data, 'science fiction movies');
       this.sciencefictionMovieResult = data.results;
     });

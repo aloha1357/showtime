@@ -32,7 +32,7 @@
     color: #ff0000;
     /* 默认文字颜色 */
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-    padding-left: 3px;
+    padding-right: 15px;
     /* 调整为需要的左侧内边距 */
 }
 

@@ -21,3 +21,11 @@ h5 {
     transform: scale(1.2);
     cursor: pointer;
 }
+
+.row>.col-lg-10 {
+    max-width: 80%;
+}
+
+.row>.col-lg-2 {
+    max-width: 20%;
+}

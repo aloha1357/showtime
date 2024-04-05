@@ -40,4 +40,7 @@ a:hover {
     .col-lg-10 {
         max-width: 50%;
     }
+    .cob-lg-10 {
+        max-width: 75%;
+    }
 }
