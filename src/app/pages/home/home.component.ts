@@ -3,6 +3,8 @@ import { RouterOutlet,RouterLink,RouterLinkActive } from '@angular/router';
 
 import { MovieApiServiceService } from '../../service/movie-api-service.service'; // Update the import path
 import { CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +15,10 @@ import { CommonModule } from '@angular/common';
 })
 
 export class HomeComponent {
-  constructor(private movieApiService: MovieApiServiceService) { }
+
+  constructor(private movieApiService: MovieApiServiceService,
+    private sanitizer: DomSanitizer,
+    private activatedRoute: ActivatedRoute) { }
   bannerData: any=[];
   popularMovies: any=[];
   actionMovieResult: any = [];
@@ -23,13 +28,51 @@ export class HomeComponent {
   documentaryMovieResult: any = [];
   sciencefictionMovieResult: any = [];
   thrillerMovieResult: any = [];
+  
+  videoUrl: any = ''; // Assign an initial value to 'videoUrl'
+  hoverTimeout: any;
+  hoveredMovie : any;
+  MovieVideoResult: any;
 
   ngOnInit(): void {
     this.bannerApiData();
     this.getPopularMovies();
     this.getMovies();
+    let getParamId = this.activatedRoute.snapshot.paramMap.get('id'); // Use this.activatedRoute instead of this.router
+    this.getSafeUrl('tgbNymZ7vqY'); // Assign a default video URL
+    this.getMovieVideos(getParamId);
   }
 
+  getMovieVideos(id: any){
+    this.movieApiService.getMovieVideos(id).subscribe((data: any) => { 
+      console.log(data, 'movie videos');
+      data.results.map((video: any) => {
+        if(video.type == 'Trailer'){
+          this.MovieVideoResult = video.key;
+        }
+      });
+    });
+  }
+  getSafeUrl(videoId: string) {
+    this.getMovieVideos(videoId);
+    let Id = this.MovieVideoResult;
+    let url = `https://www.youtube.com/embed/${Id}?autoplay=1&mute=1`;
+    console.log(videoId, 'url');
+  }
+  onMouseEnter(videoId: string) {
+    this.hoverTimeout = setTimeout(() => {
+      this.getMovieVideos(videoId);
+      let Id = this.MovieVideoResult;
+      this.videoUrl = this.getSafeUrl(Id);
+    }, 3000); // 3秒后播放
+  }
+
+  onMouseLeave() {
+    if (this.hoverTimeout) {
+      clearTimeout(this.hoverTimeout);
+      this.videoUrl = ''; // 清除视频URL，停止播放
+    }
+  }
   bannerApiData(){
     this.movieApiService.bannerApiData().subscribe((data: any) => { // Specify the type of 'data' as 'any'
       console.log(data, 'banner data');

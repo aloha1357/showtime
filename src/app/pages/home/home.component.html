@@ -26,9 +26,13 @@
     </div>
     <div class="rowposter p-1">
         <ng-container *ngFor="let m of popularMovies">
-            <img src="http://image.tmdb.org/t/p/w500/{{m.poster_path}}" class="rowimg largeposter" alt="..." [routerLink]="['/movie', m.id]">
+            <div class="movie-poster" (mouseenter)="hoveredMovie = m" (mouseleave)="hoveredMovie = null">
+                <!-- 显示海报 -->
+                <img *ngIf="!hoveredMovie || hoveredMovie.id !== m.id" src="http://image.tmdb.org/t/p/w500/{{m.poster_path}}" class="rowimg largeposter" alt="...">
+                <!-- 显示视频 -->
+                <!-- <iframe *ngIf="hoveredMovie && hoveredMovie.id === m.id" [src]="getSafeUrl(m.videoId)" frameborder="0" allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="movie-video"></iframe> -->
+            </div>
         </ng-container>
-
     </div>
 </div>
 <!-- action movies  -->

@@ -60,7 +60,6 @@ export class MovieDetailsComponent {
     });
   }
 
-
   getSafeUrl(videoId: string): SafeResourceUrl {
     // 注意：为了自动播放并静音，我们添加了`autoplay=1`和`mute=1`
     let url = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
