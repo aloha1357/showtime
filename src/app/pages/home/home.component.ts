@@ -23,13 +23,19 @@ export class HomeComponent {
   documentaryMovieResult: any = [];
   sciencefictionMovieResult: any = [];
   thrillerMovieResult: any = [];
-
+  showVideo: boolean[] = [];
   ngOnInit(): void {
     this.bannerApiData();
     this.getPopularMovies();
     this.getMovies();
   }
+    onMouseEnter(id: number) {
+      this.showVideo[id] = true;
+    }
 
+    onMouseLeave(id: number) {
+      this.showVideo[id] = true;
+    }
   bannerApiData(){
     this.movieApiService.bannerApiData().subscribe((data: any) => { // Specify the type of 'data' as 'any'
       console.log(data, 'banner data');
