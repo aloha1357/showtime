@@ -135,3 +135,24 @@
         max-height: 100%;
     }
 }
+
+
+/* Adjust the color and size of the message and comment section */
+
+.message,
+.comment {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+
+/* Adjust the color and size of the rating system */
+
+.rating {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.textarea {
+    width: 100%;
+}

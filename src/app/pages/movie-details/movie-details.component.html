@@ -14,9 +14,18 @@
         </div>
         <div class="col-lg-10">
             <h1>{{MovieDetailResult.original_title}}</h1>
+            <!-- <h1>{{MovieDetailResult.vote_average}}</h1> -->
             <p>{{MovieDetailResult.overview}}</p>
             <a class="btn btn-md" href="https://www.themoviedb.org/video/play?key={{MovieVideoResult}}">Watch it Now!</a>
+        </div>
 
+    </div>
+    <div class="col-lg-10">
+        <div class="message-box">
+            <h3>Leave a Comment</h3>
+            <textarea placeholder="Enter your comment" style="width: 100%;"></textarea>
+            <!-- <button class="btn btn-md" (click)="submitComment()">Submit</button>
+            <p *ngIf="!isLoggedIn">Please log in to leave a comment.</p> -->
         </div>
     </div>
     <div class="cob-lg-10 p-4">

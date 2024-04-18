@@ -44,3 +44,16 @@ a:hover {
         max-width: 75%;
     }
 }
+
+.message-box {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+
+/* Adjust the color and size of the rating system */
+
+.rating {
+    color: #ffffff;
+    font-size: 20px;
+}
