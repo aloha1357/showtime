@@ -1,50 +1,62 @@
 .navbar-brand,
 .nav-link.active[aria-current="page"] {
     color: red !important;
-    font: bold;
     font-weight: 700;
 }
 
 
-/* 當導航欄被折叠時，仍然將"Home"文本設為紅色 */
+/* 移除边框 */
 
-.navbar-collapse .nav-link.active[aria-current="page"] {
-    color: red !important;
+.navbar-toggler {
+    border: none;
+    box-shadow: none;
 }
 
 
-/* 將"Search"按鈕設為紅色 */
+/* Nvbar的渐变背景，始终保持 */
 
-.btn-outline-success {
-    color: #ff0000 !important;
-    background-color: rgb(0, 0, 0) !important;
-    border-color: rgb(0, 0, 0) !important;
-}
-
-.btn-outline-success:hover {
-    color: #ff0000 !important;
-    background-color: rgb(0, 0, 0) !important;
-    border-color: rgb(0, 0, 0) !important;
+.navbar {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 
-/* 针对输入框右边的"Search"按钮文本 */
+/* 确保.nav-link在小屏幕上也能靠右 */
 
-.form-control:focus+.btn-outline-success {
-    color: red !important;
-    border-color: red !important;
+.nav-link {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 700;
+    color: #ff0000;
+    /* 默认文字颜色 */
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    padding-right: 15px;
+    /* 调整为需要的左侧内边距 */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active:hover {
+    color: #ffffff !important;
+    /* 文字颜色变成背景颜色 */
+    background-color: #ff0000;
+    /* 背景颜色变成文字颜色 */
 }
 
 
-/* 针对折叠时的"Search"按钮文本样式 */
+/* 折叠时的"Search"按钮文本样式 */
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='red' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
 }
 
 
-/* 如果你还需要改变折叠后的导航项的颜色，可以添加这个规则 */
+/* 改变折叠后的导航项的颜色 */
 
 .navbar-collapse .nav-link {
     color: red !important;
 }
+
+
+/* 对折叠内容不单独设置背景，以避免覆盖或消失的问题 */

@@ -1,35 +1,25 @@
 <!--navbarbegin-->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid justify-content-between">
-        <a class="navbar-brand" href="#">Show Time</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand" routerLink="">Show Time</a>
+        <button class="navbar-toggler" type="button" (click)="toggleNavbar()" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [class.show]="navbarOpen" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <li class="nav-item" (click)="navbarOpen ? toggleNavbar() : null">
+                    <a class="nav-link active" aria-current="page" routerLink="">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sign up</a>
+                <li class="nav-item" (click)="navbarOpen ? toggleNavbar() : null">
+                    <a class="nav-link" routerLink="signup">Sign up</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Log in</a>
+                <li class="nav-item" (click)="navbarOpen ? toggleNavbar() : null">
+                    <a class="nav-link" routerLink="login">Log in</a>
                 </li>
-                <li class="nav-item" *ngIf="!showSearch">
-                    <button class="btn btn-outline-success" type="button" (click)="toggleSearch()">
-                    Search
-                  </button>
+                <li class="nav-item" (click)="navbarOpen ? toggleNavbar() : null">
+                    <a class="nav-link" routerLink="search">Search</a>
                 </li>
             </ul>
-            <form class="d-flex" *ngIf="showSearch" (submit)="onSearch()">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchTerm" name="searchTerm">
-                <button class="btn btn-outline-success" type="search">
-                  Submit
-              </button>
-                <!-- Optionally, include a close button to hide the search form -->
-                <!-- <button class="btn btn-outline-danger" type="button" (click)="showSearch=false">Close</button> -->
-            </form>
         </div>
     </div>
 </nav>
