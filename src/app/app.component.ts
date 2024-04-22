@@ -4,7 +4,7 @@ import { RouterOutlet,RouterLink,RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
-
+import { UserApiService } from './user/user-api.service';
 import { ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
@@ -16,9 +16,10 @@ import { ReactiveFormsModule } from '@angular/forms';
      RouterLink,
      RouterLinkActive,
      HttpClientModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
     ],
-  providers: [MovieApiServiceService],
+  providers: [MovieApiServiceService,
+              UserApiService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

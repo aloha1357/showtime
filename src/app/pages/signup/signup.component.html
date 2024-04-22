@@ -1,1 +1,23 @@
-<p>signup works!</p>
+<div class="signup-container">
+    <form (ngSubmit)="onSignUp()">
+        <h2>注册</h2>
+        <div class="form-group">
+            <label for="email">电子邮箱:</label>
+            <input type="email" id="email" [(ngModel)]="email" name="email" required [class.invalid]="!isValidEmail && submitted">
+        </div>
+        <div class="form-group">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" [(ngModel)]="username" name="username" required [class.invalid]="!isValidUsername && submitted">
+        </div>
+        <div class="form-group">
+            <label for="password">密码 (至少8位，包含英文和数字):</label>
+            <input type="password" id="password" [(ngModel)]="password" name="password" required [class.invalid]="!isValidPassword && submitted">
+        </div>
+        <div class="form-group">
+            <button type="submit">注册</button>
+        </div>
+        <p class="hints">
+            用户名限定英文数字，不能含其他符号。<br> 密码要超过八位数，包含英文和数字。
+        </p>
+    </form>
+</div>

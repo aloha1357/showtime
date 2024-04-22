@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="login-container">
+    <form (ngSubmit)="onSubmit()">
+        <h2>登入</h2>
+        <div class="form-group">
+            <label for="email">電子郵箱:</label>
+            <input type="email" id="email" [(ngModel)]="user.email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">密碼:</label>
+            <input type="password" id="password" [(ngModel)]="user.password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">登入</button>
+        </div>
+        <div class="form-group">
+            <button type="button" (click)="forgotPassword()">忘記密碼?</button>
+        </div>
+    </form>
+</div>
