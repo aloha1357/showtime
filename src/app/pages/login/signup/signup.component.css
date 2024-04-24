@@ -1,30 +1,29 @@
-.login-container {
-    width: 300px;
-    margin: 12rem auto;
-    /* 与注册页相同的顶部外边距 */
-    padding: 20px;
-    background-color: #000000;
-    /* 黑色背景 */
-    border: 3px solid rgb(0, 0, 0);
-    /* 红色边框 */
-    border-radius: 12px;
-    /* 圆角 */
-    box-shadow: 0 4px 15px rgba(128, 128, 128, 0.5);
-    /* 增强阴影 */
-    color: #ffffff;
-    /* 白色文字 */
-}
-
-.login-container h2,
-.login-container label {
-    text-align: center;
-    color: #ffffff;
-    /* 白色标题和标签文字 */
-}
-
 .form-group {
     margin-bottom: 15px;
-    /* 保持表单组件间距 */
+    /* 增加或确认每个表单组之间的距离 */
+}
+
+.signup-container {
+    width: 300px;
+    margin: 12rem auto;
+    /* 调整上边距 */
+    padding: 20px;
+    background-color: #000000;
+    /* 设置背景颜色为黑色 */
+    border: 3px solid rgb(0, 0, 0);
+    /* 添加红色边框 */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(146, 146, 146, 0.5);
+    /* 调整阴影，增加对比 */
+    color: #ffffff;
+    /* 设置内部文字颜色为白色 */
+}
+
+.signup-container h2,
+.signup-container label {
+    text-align: center;
+    color: #ffffff;
+    /* 设置标题和标签文字为白色 */
 }
 
 .form-group input {
@@ -34,14 +33,14 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #ffffff;
-    /* 输入框背景色设置为白色以提高可读性 */
+    /* 输入框背景设置为深灰色以增强可读性 */
     color: #000000;
-    /* 输入框文字颜色设置为黑色 */
+    /* 输入框内文字颜色设置为白色 */
 }
 
 .form-group input.invalid {
     border: 2px solid red;
-    /* 输入不符合要求时边框为红色 */
+    /* 输入不符合要求时边框为更明显的红色 */
 }
 
 .error-message {
@@ -56,17 +55,12 @@ button {
     border-radius: 6px;
     border: none;
     background-color: #ff0000;
-    /* 按钮背景色为红色 */
     color: white;
-    /* 按钮文字颜色为白色 */
     cursor: pointer;
 }
 
 button:hover {
     background-color: #000000;
-    /* 按钮悬停时背景色变为黑色 */
-    color: #ff0000;
-    /* 按钮悬停时文字颜色变为红色 */
+    color: rgb(255, 0, 0);
     border: 1px solid #ff0000;
-    /* 按钮悬停时边框为红色 */
 }

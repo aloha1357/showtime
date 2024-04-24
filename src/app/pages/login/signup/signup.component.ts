@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { UserApiService } from '../../user/user-api.service';
+import { UserApiService } from '../../../user/user-api.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
@@ -17,7 +18,9 @@ export class SignupComponent {
   isValidEmail: boolean = true;  // 初始假设输入有效
   isValidUsername: boolean = true;  // 初始假设输入有效
   isValidPassword: boolean = true;  // 初始假设输入有效
-
+  emailError: string = '';
+  usernameError: string = '';
+  passwordError: string = '';
   constructor(private userApi: UserApiService) {}
 
   onSignUp(): void {
@@ -36,10 +39,21 @@ export class SignupComponent {
     }
   }
 
-  validateInputs(): boolean {
-    this.isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
-    this.isValidUsername = /^[a-zA-Z0-9]+$/.test(this.username);
-    this.isValidPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/.test(this.password);
-    return this.isValidEmail && this.isValidUsername && this.isValidPassword;
+    validateInputs(): boolean {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const usernameRegex = /^[a-zA-Z0-9]+$/;
+      const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+
+      this.isValidEmail = emailRegex.test(this.email);
+      this.emailError = this.isValidEmail ? '' : 'Invalid email address.';
+
+      this.isValidUsername = usernameRegex.test(this.username);
+      this.usernameError = this.isValidUsername ? '' : 'Username can only contain letters and numbers.';
+
+      this.isValidPassword = passwordRegex.test(this.password);
+      this.passwordError = this.isValidPassword ? '' : 'Password must be at least 8 characters and include both letters and numbers.';
+
+      return this.isValidEmail && this.isValidUsername && this.isValidPassword;
   }
+
 }
