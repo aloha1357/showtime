@@ -1,4 +1,8 @@
+<!-- login.component.html -->
 <div class="login-container">
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
     <form (ngSubmit)="onSubmit()">
         <h2>Login</h2>
         <div class="form-group">
@@ -10,9 +14,8 @@
             <input type="password" id="password" [(ngModel)]="user.password" name="password" required>
         </div>
         <div class="form-group">
-            <button type="submit" routerLink="/">Login</button>
+            <button type="submit">Login</button>
         </div>
-        <!-- 添加注册和忘记密码的按钮，并设置路由链接 -->
         <div class="form-group">
             <button type="button" routerLink="/login/signup">Sign Up</button>
         </div>

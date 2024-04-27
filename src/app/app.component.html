@@ -1,10 +1,11 @@
 <!--navbarbegin-->
+<!-- app.component.html -->
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid justify-content-between">
         <a class="navbar-brand" routerLink="">Show Time</a>
         <button class="navbar-toggler" type="button" (click)="toggleNavbar()" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
+      </button>
         <div class="collapse navbar-collapse" [class.show]="navbarOpen" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item" (click)="navbarOpen ? toggleNavbar() : null">
@@ -19,14 +20,22 @@
                 <li class="nav-item" *ngIf="userService.isAuthenticated()">
                     <a class="nav-link" (click)="userService.logout()">Logout</a>
                 </li>
+                <!-- app.component.html 中关于用户信息的部分 -->
                 <li class="nav-item" *ngIf="userService.isAuthenticated()">
-                    <img [src]="userService.getUser().avatar" alt="User Avatar"> {{ userService.getUser().username }}
+                    <a class="nav-link">
+                        <span>{{ userService.getUser()?.username }}</span>
+                        <!-- 用户名 -->
+                        <img [src]="userService.getUser()?.avatar" alt="" width="40" height="40">
+                        <!-- 用户头像 -->
+                    </a>
+
                 </li>
 
             </ul>
         </div>
     </div>
 </nav>
+
 
 <!--navbarend-->
 

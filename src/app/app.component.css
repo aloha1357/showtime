@@ -27,16 +27,19 @@
     justify-content: flex-end;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav .nav-link,
+.user-info {
     font-weight: 700;
     color: #ff0000;
     /* 默认文字颜色 */
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
     padding-right: 15px;
     /* 调整为需要的左侧内边距 */
+    height: 56px;
 }
 
 .navbar-nav .nav-link:hover,
+.user-info:hover,
 .navbar-nav .nav-link.active:hover {
     color: #ffffff !important;
     /* 文字颜色变成背景颜色 */
@@ -59,4 +62,19 @@
 }
 
 
-/* 对折叠内容不单独设置背景，以避免覆盖或消失的问题 */
+/* 添加用户头像样式 */
+
+.nav-item .nav-link {
+    margin-left: auto;
+    /* 将头像移至右侧 */
+    display: flex;
+    align-items: center;
+}
+
+
+/* 用户头像图片样式 */
+
+.nav-item .nav-link img {
+    border-radius: 50%;
+    /* 圆形头像 */
+}

@@ -10,7 +10,7 @@ export class UserApiService {
  
   constructor(private http: HttpClient) { }
   private user: any = null;
-  private baseUrl = 'http://localhost:8000';  // 确认这是你的服务器地址
+  private baseUrl = 'http://localhost:8000/api';  // 确认这是你的服务器地址
 
   // 用户注册
   signup(name: string, email: string, password: string): Observable<any> {
@@ -18,15 +18,17 @@ export class UserApiService {
   }
 
   // 用户登录
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/users/login`, { email, password }).pipe(
-      tap((response: any) => {
-        localStorage.setItem('authToken', response.token); // 假设响应中包含token
-        this.user = response.user; // 假设响应中包含用户信息
-        localStorage.setItem('user', JSON.stringify(this.user));
-      })
-    );
-  }
+login(email: string, password: string): Observable<any> {
+  return this.http.post(`${this.baseUrl}/users/login`, { email, password }).pipe(
+    tap((response: any) => {
+      localStorage.setItem('authToken', response.token);
+      localStorage.setItem('userId', response.userId); // 保存用户 ID
+      localStorage.setItem('userusername',response.username ); // 保存用户信息
+      this.user = { userId: response.userId ,username:response.username}; // 假设你想在服务中保存简单的用户信息
+    })
+  );
+}
+
 
     // 检查用户是否已登录
     checkLoginStatus() {
