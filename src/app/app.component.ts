@@ -27,7 +27,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class AppComponent {
   title = 'showtime';
   navbarOpen = false;
+  constructor(public userService: UserApiService) {}
 
+  ngOnInit() {
+    this.userService.checkLoginStatus();
+  }
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
     

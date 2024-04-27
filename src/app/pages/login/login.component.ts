@@ -34,14 +34,4 @@ export class LoginComponent {
     );
   }
 
-  forgotPassword() {
-    this.userApi.forgotPassword(this.user.email).subscribe(
-      response => {
-        alert('已發送密碼重設的連結至您的郵箱');
-      },
-      error => {
-        console.error('Error sending forgot password email', error);
-      }
-    );
-  }
 }

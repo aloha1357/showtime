@@ -11,11 +11,18 @@
                     <a class="nav-link active" aria-current="page" routerLink="">Home</a>
                 </li>
                 <li class="nav-item" (click)="navbarOpen ? toggleNavbar() : null">
-                    <a class="nav-link" routerLink="login">Log in / Sign up</a>
-                </li>
-                <li class="nav-item" (click)="navbarOpen ? toggleNavbar() : null">
                     <a class="nav-link" routerLink="search">Search</a>
                 </li>
+                <li class="nav-item" *ngIf="!userService.isAuthenticated()">
+                    <a class="nav-link" routerLink="login">Log in / Sign up</a>
+                </li>
+                <li class="nav-item" *ngIf="userService.isAuthenticated()">
+                    <a class="nav-link" (click)="userService.logout()">Logout</a>
+                </li>
+                <li class="nav-item" *ngIf="userService.isAuthenticated()">
+                    <img [src]="userService.getUser().avatar" alt="User Avatar"> {{ userService.getUser().username }}
+                </li>
+
             </ul>
         </div>
     </div>

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieApiServiceService } from '../../service/movie-api-service.service'; // Update the import path
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { UserApiService } from '../../user/user-api.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -18,9 +19,13 @@ export class MovieDetailsComponent {
   MovieVideoResult: any=[];
   MovieReviewResult: any=[];
   MovieCastResult: any=[];
+  reviewData = { comment: '', rating: 5 };
+  isLoggedIn: boolean = false; // This should actually be set based on your auth status
+
   constructor(private movieApiService: MovieApiServiceService,
               private activatedRoute: ActivatedRoute,
-              private sanitizer: DomSanitizer
+              private sanitizer: DomSanitizer,
+              private userService: UserApiService
               ) { } // Declare activatedRoute as a private property
 
   ngOnInit(): void {
@@ -65,5 +70,15 @@ export class MovieDetailsComponent {
     // 注意：为了自动播放并静音，我们添加了`autoplay=1`和`mute=1`
     let url = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+  submitReview(movieId: string) {
+    this.userService.submitNewReview(movieId, this.reviewData).subscribe({
+      next: (response) => {
+        console.log('Review submitted successfully', response);
+      },
+      error: (error) => {
+        console.error('Failed to submit review', error);
+      }
+    });
   }
 }
