@@ -1,25 +1,54 @@
 # Showtime
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+
+## Demo Video
+
+
 ## Home Page
 
-### Desktop View
-![Home Page Desktop](./demo/home-page-desktop.png)
-
-### Mobile View
-![Home Page Mobile](./demo/home-page-mobile.png)
+<table>
+  <tr>
+    <td>
+      <strong>Desktop View</strong><br>
+      <img src="./demo/home-page-desktop.png" alt="Home Page Desktop" width="400">
+    </td>
+    <td>
+      <strong>Mobile View</strong><br>
+      <img src="./demo/home-page-mobile.png" alt="Home Page Mobile" width="200">
+    </td>
+  </tr>
+</table>
 
 ## Search Page
 
-![Search Page Desktop](./demo/search-page-desktop.png)
+<table>
+  <tr>
+    <td>
+      <strong>Desktop View</strong><br>
+      <img src="./demo/search-page-desktop.png" alt="Search Page Desktop" width="400">
+    </td>
+    <td>
+      <strong>Mobile View</strong><br>
+      <img src="./demo/search-page-mobile.png" alt="Search Page Mobile" width="200">
+    </td>
+  </tr>
+</table>
 
 ## Movie Detail Page
 
-### Desktop View
-![Movie Detail Page Desktop](./demo/movie-detail-page-desktop.png)
-
-### Mobile View
-![Movie Detail Page Mobile](./demo/movie-detail-page-mobile.png)
+<table>
+  <tr>
+    <td>
+      <strong>Desktop View</strong><br>
+      <img src="./demo/movie-detail-page-desktop.png" alt="Movie Detail Page Desktop" width="400">
+    </td>
+    <td>
+      <strong>Mobile View</strong><br>
+      <img src="./demo/movie-detail-page-mobile.png" alt="Movie Detail Page Mobile" width="200">
+    </td>
+  </tr>
+</table>
 
 ## Development server
 
