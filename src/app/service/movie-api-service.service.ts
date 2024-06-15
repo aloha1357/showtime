@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment'; // 根據文件位置調整路徑
 
 interface MovieType {
   name: string;
@@ -13,10 +14,9 @@ interface MovieType {
 
 export class MovieApiServiceService {
 
-  constructor(private http: HttpClient) { }
-  
-  // 這是您的 Google Apps Script Web App 的 URL
-  baseUrl = 'https://script.google.com/macros/s/AKfycbwX-Opm65UotRrJ0khgiS1-cTaiMLrvwi9qZX1dskaDc35mf_Z-eJ0EOV7W-fZnOj9x/exec'; 
+  constructor(private http:HttpClient) { }
+  baseUrl = 'https://api.themoviedb.org/3/'; 
+  api_key = environment.api_key;
 
   movielib: MovieType[] = [
     { name: "action", genres: 28 },
@@ -28,43 +28,40 @@ export class MovieApiServiceService {
     { name: "thriller", genres: 53 }
   ];
   
-  getPopularMovies(): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getPopularMovies`);
+  getPopularMovies(){
+    return this.http.get(`${this.baseUrl}movie/popular?api_key=${this.api_key}`);
   }
 
-  getMovies(genreId: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getMovies&genreId=${genreId}`);
+  getMovies(genreId: string) {
+    const type = this.movielib.find(type => type.name === genreId);
+    if (!type) {
+      throw new Error('Genre not found');
+    }
+    return this.http.get(`${this.baseUrl}/discover/movie?api_key=${this.api_key}&with_genres=${type.genres}`);
   }
 
-  getNowPlaying(): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getNowPlaying`);
+  getNowPlaying(){
+    return this.http.get(`${this.baseUrl}movie/now_playing?language=zh&api_key=${this.api_key}`);
   }
-
-  bannerApiData(): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getPopularMovies`);
+  bannerApiData():Observable<any> {
+    return this.http.get(`${this.baseUrl}movie/popular?api_key=${this.api_key}`);
   }
-
-  trendingMovies(): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getTrendingMovies`);
+  trendingMovies():Observable<any> {
+    return this.http.get(`${this.baseUrl}trending/movie/day?api_key=${this.api_key}`);
   }
-
-  getSearchedMovies(searchedMovie: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getSearchedMovies&searchedMovie=${searchedMovie}`);
+  getSearchedMovies(searchedMovie:any):Observable<any> {
+    return this.http.get(`${this.baseUrl}search/movie?query=${searchedMovie}&api_key=${this.api_key}`);
   }
-
-  getMovieDetails(id: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getMovieDetails&id=${id}`);
+  getMovieDetails(id:any):Observable<any> {
+    return this.http.get(`${this.baseUrl}movie/${id}?api_key=${this.api_key}`);
   }
-
-  getMovieVideos(id: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getMovieVideos&id=${id}`);
+  getMovieVideos(id:any):Observable<any> {
+    return this.http.get(`${this.baseUrl}movie/${id}/videos?api_key=${this.api_key}`);
   }
-
-  getMovieReviews(id: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getMovieReviews&id=${id}`);
+  getMovieReviews(id:any):Observable<any> {
+    return this.http.get(`${this.baseUrl}movie/${id}/reviews?api_key=${this.api_key}`);
   }
-
-  getMovieCast(id: any): Observable<any> {
-    return this.http.get(`${this.baseUrl}?action=getMovieCast&id=${id}`);
+  getMovieCast(id:any):Observable<any> {
+    return this.http.get(`${this.baseUrl}movie/${id}/credits?api_key=${this.api_key}`);
   }
 }
