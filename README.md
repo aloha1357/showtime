@@ -1,6 +1,25 @@
 # Showtime
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+## Home Page
+
+### Desktop View
+![Home Page Desktop](./demo/home-page-desktop.png)
+
+### Mobile View
+![Home Page Mobile](./demo/home-page-mobile.png)
+
+## Search Page
+
+![Search Page Desktop](./demo/search-page-desktop.png)
+
+## Movie Detail Page
+
+### Desktop View
+![Movie Detail Page Desktop](./demo/movie-detail-page-desktop.png)
+
+### Mobile View
+![Movie Detail Page Mobile](./demo/movie-detail-page-mobile.png)
 
 ## Development server
 
