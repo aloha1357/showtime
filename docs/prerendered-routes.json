@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/login",
+    "/login/resetpassword",
+    "/login/signup",
+    "/search"
+  ]
+}
