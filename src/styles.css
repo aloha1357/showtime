@@ -7,3 +7,18 @@ body {
     font-family: "Ubuntu", sans-serif;
     background-color: #000000;
 }
+
+footer {
+    background-color: #000000;
+    /* 深色背景 */
+    color: rgb(115, 115, 115) !important;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    /* 更改为相对定位 */
+    width: 100%;
+}
+
+footer a {
+    color: rgb(115, 115, 115) !important;
+}
